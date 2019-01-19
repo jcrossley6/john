@@ -1,0 +1,245 @@
+﻿<script>
+    function Check1(chk, num1) {
+        var checkboxes1 = document.getElementsByName('Q1');
+        var checkboxes2 = document.getElementsByName('Q2');
+        var checkboxes3 = document.getElementsByName('Q3');
+        for (i = 0; i < chk.length; i++) {
+            chk[i].checked = false;
+        }
+        if (num1 == 1) {
+            chk[0].checked = true;
+        }
+        if (num1 == 2) {
+            chk[1].checked = true;
+        }
+        if (num1 == 3){
+            chk[2].checked = true;
+        }
+
+    };
+
+    function Check2(chk, num2) {
+        for (i = 0; i < chk.length; i++) {
+            chk[i].checked = false;
+        }
+        if (num2 == 1) {
+            chk[0].checked = true;
+        }
+        if (num2 == 2) {
+            chk[1].checked = true;
+        }
+        if (num2 == 3){
+            chk[2].checked = true;
+        }
+    };
+
+    function Check3(chk, num3) {
+        for (i = 0; i < chk.length; i++) {
+            chk[i].checked = false;
+        }
+        if (num3 == 1) {
+            chk[0].checked = true;
+        }
+        if (num3 == 2) {
+            chk[1].checked = true;
+        }
+        if (num3 == 3) {
+            chk[2].checked = true;
+        }
+    };
+
+    function QUIZMARK(N1, N2, N3) {
+        var X1 = 0;
+        for (var p = 0; p < 3; p++) {
+            if (N1[p].checked == true) {
+                X1 = N1[p].value;
+            }
+        }
+        var X2 = 0;
+        for (p = 0; p < 3; p++) {
+            if (N2[p].checked == true) {
+                X2 = N2[p].value;
+            }
+        }
+        var X3 = 0;
+        for (p = 0; p < 3; p++) {
+            if (N3[p].checked == true) {
+                X3 = N3[p].value;
+            }
+        }
+
+        var POINTS = 0;
+        if (X1 == 1) {
+            POINTS = POINTS - 10;
+        }
+        if (X1 == 2) {
+            POINTS = POINTS - 10;
+        }
+        if (X1 == 3){
+            POINTS = POINTS + 25;
+        }
+
+        if (X2 == 1) {
+            POINTS = POINTS - 10;
+        }
+        if (X2 == 2) {
+            POINTS = POINTS + 25;
+        }
+        if (X2 == 3){
+            POINTS = POINTS - 10;
+        }
+
+        if (X3 == 1) {
+            POINTS = POINTS + 25;
+        }
+
+        if (X3 == 2) {
+            POINTS = POINTS - 10;
+        }
+        if (X3 == 3) {
+            POINTS = POINTS - 10;
+        }
+
+        if (POINTS >= 40) {
+            document.getElementById("demo").innerHTML = "CONGRATULATIONS you scored " + POINTS + " out of 75!!! and have PASSED!!!!";
+        }
+        else {
+            document.getElementById("demo").innerHTML = "you scored " + POINTS + " out of 75 AND Need to take the quiz again!!";
+        }
+    };
+
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="Scripts/FabricUI/MessageBanner.js" type="text/javascript"></script>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+
+    <!-- To enable offline debugging using a local reference to Office.js, use:                        -->
+    <!-- <script src="Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>  -->
+    <!-- <script src="Scripts/Office/1/office.js" type="text/javascript"></script>  -->
+
+    <link href="Home.css" rel="stylesheet" type="text/css" />
+    <script src="Home.js" type="text/javascript"></script>
+
+    <!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.min.css">
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.components.min.css">
+
+    <!-- To enable the offline use of Office UI Fabric, use: -->
+    <!-- link rel="stylesheet" href="Content/fabric.min.css" -->
+    <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
+</head>
+
+
+<body>
+    <div id="content-main">
+        <div class="padding">
+            Q1.  Who creates the intent for Autogenous?
+
+            <label class="container">
+                Created by Designers/Developers
+                <input type="checkbox" id="Q1A" name="Q1" value="1" onclick="Check1(document.getElementsByName('Q1'), this.value)" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by those who give access/distribute the software/product
+                <input type="checkbox" id="Q1B" name="Q1" value="2" onclick="Check1(document.getElementsByName('Q1'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by user of the Interactive Technology
+                <input type="checkbox" id="Q1C" name="Q1" value="3" onclick="Check1(document.getElementsByName('Q1'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+
+            <p>
+
+            </p>
+
+            Q2.  Who creates the intent for Exogenous?
+
+            <label class="container">
+                Created by Designers/Developers
+                <input type="checkbox" id="Q2A" name="Q2" value="1" onclick="Check2(document.getElementsByName('Q2'), this.value)" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by those who give access/distribute the software/product
+                <input type="checkbox" id="Q2B" name="Q2" value="2" onclick="Check2(document.getElementsByName('Q2'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by user of the Interactive Technology
+                <input type="checkbox" id="Q2C" name="Q2" value="3" onclick="Check2(document.getElementsByName('Q2'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+            <p>
+
+            </p>
+
+            Q3.  Who creates the intent for Endogenous?
+
+
+            <label class="container">
+                Created by Designers/Developers
+                <input type="checkbox" id="Q3A" name="Q3" value="1" onclick="Check3(document.getElementsByName('Q3'), this.value)" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by those who give access/distribute the software/product
+                <input type="checkbox" id="Q3B" name="Q3" value="2" onclick="Check3(document.getElementsByName('Q3'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+                Created by user of the Interactive Technology
+                <input type="checkbox" id="Q3C" name="Q3" value="3" onclick="Check3(document.getElementsByName('Q3'), this.value)">
+                <span class="checkmark"></span>
+            </label>
+
+            <p>
+
+            </p>
+            <button id="Run" onclick="QUIZMARK(document.getElementsByName('Q1'), document.getElementsByName('Q2'), document.getElementsByName('Q3'))">RUN</button>
+            <!-- TODO5: Create the go-to-slide buttons. -->
+        </div>
+
+        <p id="demo"></p>
+    </div>
+    <div class="footer">
+        <div class="ms-Grid ms-bgColor-themeSecondary">
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12"> <div class="ms-font-xl ms-fontColor-white">Contoso</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FabricUI component used for displaying notifications -->
+    <div class="ms-MessageBanner" id="notification-popup">
+        <div class="ms-MessageBanner-content">
+            <div class="ms-MessageBanner-text">
+                <div class="ms-MessageBanner-clipper">
+                    <div class="ms-font-m-plus ms-fontWeight-semibold" id="notification-header"></div>
+                    <div class="ms-font-m ms-fontWeight-semilight" id="notification-body"></div>
+                </div>
+            </div>
+            <button class="ms-MessageBanner-expand" style="display:none"><i class="ms-Icon ms-Icon--chevronsDown"></i> </button>
+            <div class="ms-MessageBanner-action"></div>
+        </div>
+        <button class="ms-MessageBanner-close"> <i class="ms-Icon ms-Icon--x"></i> </button>
+    </div>
+    <!-- TODO2: Create the content-header div. -->
+
+</body>
+</html>
